@@ -1,7 +1,7 @@
 const { Institucion } = require("../../db");
 const createBaseService = require("../createBaseService");
 
-const zonaCrudService = (() => {
+const zonaCrudService = () => {
     const crud = createBaseService(Institucion);
 
     return {
@@ -15,6 +15,6 @@ const zonaCrudService = (() => {
 
         eliminarZona: (id) => crud.delete(id),
     };
-})();
+};
 
 module.exports = zonaCrudService;

@@ -1,8 +1,8 @@
 const createBaseService = require("../createBaseService");
 const { Docente } = require("../../db");
 
-const docenteCrudService = (() => {
-    const crud = createBaseService(Docente);
+const docenteCrudService = (model = Docente) => {
+    const crud = createBaseService(model);
 
     return {
         crearDocente: (data) => crud.create(data),
@@ -15,6 +15,6 @@ const docenteCrudService = (() => {
 
         eliminarDocente: (id) => crud.delete(id),
     };
-})();
+};
 
 module.exports = docenteCrudService;

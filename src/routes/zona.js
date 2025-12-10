@@ -1,13 +1,15 @@
-const express = require("express");
-const zonaCrudService = require("../services/zona/zonaCrudService")
-const zonaController = require("../controllers/zona")(zonaCrudService);
+const { Router } = require("express");
 
-const router = express.Router();
+const zonaRouter = (controller) => {
+    const router = Router();
 
-router.post("/", zonaController.create);
-router.get("/", zonaController.getAll);
-router.get("/:id", zonaController.getOne);
-router.put("/:id", zonaController.update);
-router.delete("/:id", zonaController.delete);
+    router.post("/", controller.create);
+    router.get("/", controller.getAll);
+    router.get("/:id", controller.getOne);
+    router.put("/:id", controller.update);
+    router.delete("/:id", controller.delete);
 
-module.exports = router;
+    return router;
+};
+
+module.exports = zonaRouter;

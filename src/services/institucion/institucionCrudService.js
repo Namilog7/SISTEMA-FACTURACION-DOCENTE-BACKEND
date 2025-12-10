@@ -1,8 +1,7 @@
-// services/institutionService.js
 const { Institucion } = require("../../db");
 const createBaseService = require("../createBaseService");
 
-const institutionCrudService = (() => {
+const institutionCrudService = () => {
     const crud = createBaseService(Institucion);
 
     return {
@@ -16,6 +15,6 @@ const institutionCrudService = (() => {
 
         eliminarInstitucion: (id) => crud.delete(id),
     };
-})();
+};
 
 module.exports = institutionCrudService;
